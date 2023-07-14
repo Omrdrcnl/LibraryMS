@@ -1,0 +1,46 @@
+﻿@using LibraryMS.Models.Entity
+@model List<tblBook>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="container my-5">
+    <h1>Kitaplar</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Kitap Adı
+            </th>
+            <th>
+                Kitap Yazarı
+            </th>
+            <th>
+                Kategorisi
+            </th>
+            <th>
+                Sil
+
+            </th>
+            <th>
+                Güncelle
+            </th>
+        </tr>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.Name</td>
+                <td>@b.tblAuthor.Name &nbsp;@b.tblAuthor.Surname</td>
+                <td>@b.tblCategory.Name</td>
+
+                <td><a href="/Category/DeleteCategory/@b.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/CallCategory/@b.Id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    <a href="~/Category/AddBook" class="btn btn-primary">Yeni Kitap Ekle</a>
+
+</div>
+

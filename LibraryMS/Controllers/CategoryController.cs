@@ -30,7 +30,7 @@ namespace LibraryMS.Controllers
         {
             db.tblCategory.Add(c);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
         public ActionResult DeleteCategory(int id)
         {

@@ -1,0 +1,18 @@
+﻿@using LibraryMS.Models.Entity;
+@model tblBook
+
+@{
+    ViewBag.Title = "AddBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form class="form form-control" method="post">
+    <label>Kitap Adı</label>
+    @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+    <label>Kitap Yazarı</label>
+    @Html.TextBoxFor(b => b.tblAuthor.Name, new { @class = "form-control" })
+    <label>Kategorisi</label>
+    @Html.TextBoxFor(b => b.tblCategory.Name, new { @class = "form-control" })
+    <button class="btn btn-primary my-4">Kategori Ekle</button>
+</form>
+

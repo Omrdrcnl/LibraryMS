@@ -1,0 +1,33 @@
+﻿@using LibraryMS.Models.Entity
+@model List<tblCategory>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<div class="container my-5">
+    <h1>Kategoriler</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Kategori Id
+            </th>
+            <th>
+                Kategori Adı
+            </th>
+        </tr>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Id</td>
+                <td>@c.Name</td>
+            </tr>
+        }
+    </table>
+    <a href="~/Category/AddCategory" class="btn btn-primary">Yeni Kategori Ekle</a>
+
+</div>

@@ -1,0 +1,132 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action bg-light" href="/istatistik/Index/"><i class="glyphicon glyphicon-home"></i> &nbsp; Ana Sayfa</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Kategori/Index/"><i class="glyphicon glyphicon-list"></i> &nbsp; Kategoriler</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Kitap/Index/"><i class="glyphicon glyphicon-book"></i> &nbsp; Kitaplar</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Yazar/Index/"><i class="glyphicon glyphicon-pencil"></i> &nbsp; Yazarlar</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Uye/Index/"><i class="glyphicon glyphicon-user"></i> &nbsp; Üyeler</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Personel/Index/"><i class="glyphicon glyphicon-tower"></i> &nbsp; Personeller</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Odunc/OduncVer/"><i class="glyphicon glyphicon-circle-arrow-right"></i> &nbsp; Ödünç Kitap Ver</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Odunc/Index/"><i class="glyphicon glyphicon-circle-arrow-left"></i> &nbsp; Ödünç Kitap Al</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/istatistik/Index/"><i class="glyphicon glyphicon-sort"></i> &nbsp; İstatistikler</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/Duyuru/Index/"><i class="glyphicon glyphicon-earphone"></i> &nbsp; Duyurular</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/islem/index/"><i class="glyphicon glyphicon-dashboard"></i> &nbsp; İşlemler</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/istatistik/Hava/"><i class="glyphicon glyphicon-cloud"></i> &nbsp; Hava Raporu</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/istatistik/HavaKart/"><i class="glyphicon glyphicon-plus"></i> &nbsp; Hava Kartları </a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/istatistik/Galeri/"><i class="glyphicon glyphicon-picture"></i> &nbsp; Galeri</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/istatistik/LinqKart/"><i class="glyphicon glyphicon-bookmark"></i> &nbsp; Linq Kartlar</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="/vitrin/Index/"><i class="glyphicon glyphicon-gift"></i> &nbsp; Vitrin</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="#"><i class="glyphicon glyphicon-cog"></i> &nbsp; Ayarlar</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="#"><i class="glyphicon glyphicon-phone"></i> &nbsp; Yardım</a>
+
+                <a class="list-group-item list-group-item-action bg-light " href="#"><i class="glyphicon glyphicon-remove-sign"></i> &nbsp; Çıkış</a>
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            @*<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>*@
+
+            <div class="container-fluid my-5">
+                @RenderBody()
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+   
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+    </script>
+
+</body>
+
+</html>

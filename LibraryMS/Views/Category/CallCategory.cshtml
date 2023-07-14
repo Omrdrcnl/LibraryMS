@@ -1,0 +1,25 @@
+﻿@model LibraryMS.Models.Entity.tblCategory
+
+@{
+    ViewBag.Title = "CallCategory";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@* Burada Beginform htmlhelper kullandık *@
+@using (Html.BeginForm("EditCategory", "Category", FormMethod.Post))
+{
+  
+    <div class="form-control">
+        @Html.LabelFor(c => c.Id)
+        @Html.TextBoxFor(c => c.Id, new { @class = "form-control my-2" })
+
+        <br />
+        @Html.LabelFor(c => c.Name)
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+
+
+        <button class="btn btn-success mt-2">Güncelle</button>
+
+    </div>
+
+}

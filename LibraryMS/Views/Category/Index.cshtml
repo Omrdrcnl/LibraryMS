@@ -19,12 +19,21 @@
             <th>
                 Kategori Adı
             </th>
+            <th>
+              Sil
+              
+            </th>
+            <th>
+                Güncelle
+            </th>
         </tr>
         @foreach (var c in Model)
         {
             <tr>
                 <td>@c.Id</td>
                 <td>@c.Name</td>
+                <td><a href="/Category/DeleteCategory/@c.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Category/CallCategory/@c.Id" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
     </table>

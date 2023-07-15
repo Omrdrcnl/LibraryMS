@@ -9,17 +9,34 @@
 @using (Html.BeginForm("EditBook","Book", FormMethod.Post))
             {
                 <div class="form-control">
+                    <h2>Kitap Güncelleme</h2>
+                    
+                    @Html.HiddenFor(b => b.Id, new { @class = "form-control" })
+                    <br />
                     @Html.LabelFor(b => b.Name)
                     @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
                     <br />
                     @Html.LabelFor(b => b.Author)
-
-                    @Html.TextBoxFor(b => b.tblAuthor.Name, new { @class = "form-control" })
+                    @*@Html.TextBoxFor(b => b.tblAuthor.Name, new { @class = "form-control" })*@
+                    @*Dropdowna aldık*@
+                    @Html.DropDownListFor(b => b.tblAuthor.Id, (List<SelectListItem>)ViewBag.Category, new { @class = "form-control" })
                     <br />
                     @Html.LabelFor(b => b.Category)
 
-                    @Html.TextBoxFor(b => b.tblCategory.Name, new { @class = "form-control" })
+                    @Html.DropDownListFor(b => b.tblCategory.Id, (List<SelectListItem>)ViewBag.Book, new { @class = "form-control" })
+                    <br />
+                    <label>Basım Yılı</label>
+                    @Html.TextBoxFor(b => b.PublicationYear, new { @class = "form-control" })
+                    <br />
+                    <label>Yayın Evi</label>
+                    @Html.TextBoxFor(b => b.Publisher, new { @class = "form-control" })
+                    <br />
+                    <label>Sayfa Sayısı</label>
+                    @Html.TextBoxFor(b => b.CountPage, new { @class = "form-control" })
+                    <br />
+                    <label>Durum</label>
+                    @Html.TextBoxFor(b => b.Situation, new { @class = "form-control" })
 
                 </div>
-                <button class="btn btn-warning mt-4">Güncelle</button>
+                <button class="btn btn-warning mt-4">Kitap Bilgilerini Güncelle</button>
             }

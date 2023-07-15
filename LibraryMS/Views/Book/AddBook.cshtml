@@ -7,12 +7,26 @@
 }
 
 <form class="form form-control" method="post">
+    <br />
     <label>Kitap Adı</label>
     @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
     <label>Kitap Yazarı</label>
-    @Html.TextBoxFor(b => b.tblAuthor.Name, new { @class = "form-control" })
+    @*Html helper ile taşıdıgımız listeyi dropdowna döküyoruz.*@
+    @Html.DropDownListFor(b =>b.tblAuthor.Id,(List<SelectListItem>)ViewBag.Author,new { @class = "form-control" })
+    @*@Html.TextBoxFor(b => b.tblAuthor.Name, new { @class = "form-control" })*@
     <label>Kategorisi</label>
-    @Html.TextBoxFor(b => b.tblCategory.Name, new { @class = "form-control" })
+    @Html.DropDownListFor(b => b.tblCategory.Id,(List<SelectListItem>)ViewBag.book, new { @class = "form-control"})
+    <label>Basım Yılı</label>
+    @Html.TextBoxFor(b => b.PublicationYear, new { @class = "form-control" })
+    <br />
+    <label>Yayın Evi</label>
+    @Html.TextBoxFor(b => b.Publisher, new { @class = "form-control" })
+    <br />
+    <label>Sayfa Sayısı</label>
+    @Html.TextBoxFor(b => b.CountPage, new { @class = "form-control" })
+    <br />
+    <label>Durum</label>
+    @Html.TextBoxFor(b => b.Situation, new { @class = "form-control" })
     <button class="btn btn-primary my-4">Kitap Ekle</button>
 </form>
 

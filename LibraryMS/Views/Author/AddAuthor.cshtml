@@ -15,9 +15,10 @@
                         @Html.LabelFor(a => a.Surname)
                         @Html.TextBoxFor(a => a.Surname, new { @class = "form-control" })
                         <br />
+                       
                         @Html.LabelFor(a => a.Detail)
 
-                        @Html.TextBoxFor(a => a.Detail, new { @class = "form-control" })
+                        @Html.TextAreaFor(a => a.Detail, new { @class = "form-control" })
 
                     </div>
                     <button class="btn btn-primary mt-3">Yazar Ekle</button>

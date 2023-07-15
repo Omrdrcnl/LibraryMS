@@ -22,6 +22,13 @@ namespace LibraryMS.Controllers
         [HttpGet]
         public ActionResult AddAuthor()
         {
+            //List<SelectListItem> list = (from i in db.tblAuthor.ToList()
+            //                             select new SelectListItem
+            //                             {
+            //                                 Text = i.Name,
+            //                                 Value = i.Id.ToString(),
+            //                             }).ToList();
+            //ViewBag.Author = list;
             return View();
         }
         [HttpPost]

@@ -1,13 +1,26 @@
 ﻿@using LibraryMS.Models.Entity
-@model List<tblBook>
+@model  List<tblBook>
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<div class="container my-5">
+<div class="container mt-5 mb-2">
     <h1>Kitaplar</h1>
+    @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+    {<div class="input-group mb-3">
+
+    @*//aramada p parametresini gönderdiğimiz alan beginform içinde 
+        get methodu kullanarak inpt içerisindeki değeri pye aktarıyoruz*@
+
+    @Html.TextBox("p", null, new { @class = "form-control my-custom-class", placeholder = "Kitap İsmini Giriniz" })
+
+    <div class="input-group-append">
+
+        <button class="btn btn-outline-secondary" type="submit">Ara</button>
+    </div>
+</div>}
 
     <table class="table table-bordered">
         <tr>
@@ -15,28 +28,42 @@
                 Kitap Adı
             </th>
             <th>
-                Kitap Yazarı
+                Yazarı
             </th>
             <th>
                 Kategorisi
             </th>
             <th>
+                Basım Yılı
+            </th>
+            <th>
+                Yayın Evi
+            </th>
+            <th>
+                Sayfa
+            </th>
+            <th>
+                Durum
+            </th>
+            <th>
                 Sil
-
             </th>
             <th>
                 Güncelle
             </th>
         </tr>
-        @foreach (var b in Model)
+        @foreach (var book in Model)
         {
             <tr>
-                <td>@b.Name</td>
-                <td>@b.tblAuthor.Name &nbsp;@b.tblAuthor.Surname</td>
-                <td>@b.tblCategory.Name</td>
-
-                <td><a href="/Book/DeleteBook/@b.Id" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Book/CallBook/@b.Id" class="btn btn-success">Güncelle</a></td>
+                <td>@book.Name</td>
+                <td>@(book.tblAuthor != null ? book.tblAuthor.Name + " " + book.tblAuthor.Surname : "")</td>
+                <td>@(book.tblCategory != null ? book.tblCategory.Name : " " )</td>
+                <td>@book.PublicationYear</td>
+                <td>@book.Publisher</td>
+                <td>@book.CountPage</td>
+                <td>@book.Situation</td>
+                <td><a href="/Book/DeleteBook/@book.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Book/CallBook/@book.Id" class="btn btn-success">Güncelle</a></td>
             </tr>
         }
     </table>

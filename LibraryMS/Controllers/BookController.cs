@@ -29,5 +29,28 @@ namespace LibraryMS.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteBook(int id)
+        {
+            var book = db.tblBook.Find(id);
+            db.tblBook.Remove(book);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+            
+        }
+        public ActionResult CallBook(tblBook b)
+        {
+            var book = db.tblBook.Find(b.Id);
+
+            return View("Callbook",book);
+        }
+        public ActionResult EditBook(tblBook b)
+        {
+            var newbook = db.tblBook.Find(b.Id);
+            newbook.Name = b.Name;
+            newbook.Author = b.Author;
+            newbook.Category = b.Category;
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
     }
 }

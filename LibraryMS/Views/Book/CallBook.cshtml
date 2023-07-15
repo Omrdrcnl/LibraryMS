@@ -1,0 +1,25 @@
+﻿@using LibraryMS.Models.Entity;
+@model tblBook
+
+@{
+    ViewBag.Title = "CallBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("EditBook","Book", FormMethod.Post))
+            {
+                <div class="form-control">
+                    @Html.LabelFor(b => b.Name)
+                    @Html.TextBoxFor(b => b.Name, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(b => b.Author)
+
+                    @Html.TextBoxFor(b => b.tblAuthor.Name, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(b => b.Category)
+
+                    @Html.TextBoxFor(b => b.tblCategory.Name, new { @class = "form-control" })
+
+                </div>
+                <button class="btn btn-warning mt-4">Güncelle</button>
+            }

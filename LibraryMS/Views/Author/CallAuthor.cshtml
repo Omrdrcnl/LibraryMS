@@ -1,0 +1,25 @@
+﻿@model LibraryMS.Models.Entity.tblAuthor
+
+@{
+    ViewBag.Title = "CallAuthor";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("EditAuthor", "Author", FormMethod.Post))
+            {
+                <div class="form-control">
+                    @Html.LabelFor(a => a.Id)
+                    @Html.TextBoxFor(a => a.Id, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(a => a.Name)
+                    @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(a => a.Surname)
+                    @Html.TextBoxFor(a => a.Surname, new { @class = "form-control" })
+                    <br />
+                    @Html.LabelFor(a => a.Detail)
+                    @Html.TextAreaFor(a => a.Detail, new { @class = "form-control" })
+                    <button class="btn btn-warning mt-3">Güncelle</button>
+                </div>
+                
+            }

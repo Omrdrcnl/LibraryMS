@@ -128,6 +128,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -253,6 +254,10 @@
     <Content Include="Views\Category\CallCategory.cshtml" />
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Book\AddBook.cshtml" />
+    <Content Include="Views\Book\CallBook.cshtml" />
+    <Content Include="Views\Author\Index.cshtml" />
+    <Content Include="Views\Author\AddAuthor.cshtml" />
+    <Content Include="Views\Author\CallAuthor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

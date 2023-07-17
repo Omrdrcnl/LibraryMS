@@ -1,0 +1,34 @@
+﻿@using LibraryMS.Models.Entity
+@model tblMember
+
+@{
+    ViewBag.Title = "AddAuthor";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("AddMember", "Member", FormMethod.Post))
+{
+    <div class="form-control">
+        @Html.LabelFor(a => a.Name)
+        @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name, "", new { @style = "color:red" })
+        <br />
+        @Html.LabelFor(a => a.Surname)
+        @Html.TextBoxFor(a => a.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Surname, "", new { @style = "color:red" })
+        <br />
+        <label>Mail Adresi</label>
+        @Html.TextBoxFor(a => a.Mail, new { @class = "form-control" })
+        <label>Kullanıcı Adı</label>
+        @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
+        <label>Şifre</label>
+        @Html.TextBoxFor(a => a.Password, new { @class = "form-control" })
+        <label>Telefon</label>
+        @Html.TextBoxFor(a => a.Phone, new { @class = "form-control" })
+        <label>Okul</label>
+        @Html.TextBoxFor(a => a.School, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-primary mt-3">Üye Ekle</button>
+
+}
+

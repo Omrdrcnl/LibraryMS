@@ -1,0 +1,72 @@
+﻿@using LibraryMS.Models.Entity
+@*Pagedlistdegerlerini ekleyelim*@
+@using PagedList
+@using PagedList.Mvc
+
+@model PagedList.IPagedList<tblMember>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="container my-5 table">
+    <h1>Üyeler</h1>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Üye Id
+            </th>
+            <th>
+                Üye Adı
+            </th>
+            <th>
+                Üye Soyadı
+            </th>
+            <th>
+                Üye Mail
+            </th>
+            <th>
+                Kullanıcı Adı
+            </th>
+            <th>
+                Şifre
+            </th>
+            <th>
+                Telefon Nu
+            </th>
+            <th>
+                Okul
+            </th>
+            <th>
+                Sil
+            </th>
+            <th>
+                Güncelle
+            </th>
+        </tr>
+        @foreach (var m in Model)
+        {
+            <tr><td>@m.Id</td>
+                <td>@m.Name</td>
+                
+                <td>@m.Surname</td>
+                <td>@m.Mail</td>
+                <td>@m.UserName</td>
+                <td>@m.Password</td>
+                <td>@m.Phone</td>
+                <td>@m.School</td>
+                <td><a href="/Member/DeleteMember/@m.Id" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Member/CallMember/@m.Id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </table>
+    @*Pageri buraya ekliyoruz, controllerda ise işleyişi belirliyoruz PagedList kütüphanesini unutma*@
+    
+       @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index",new {page}))
+    
+    <a href="~/Member/AddMember" class="btn btn-primary">Yeni Üye Ekle</a>
+
+</div>
+

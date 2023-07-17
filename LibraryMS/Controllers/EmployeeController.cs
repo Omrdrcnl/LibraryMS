@@ -34,10 +34,11 @@ namespace LibraryMS.Controllers
         [HttpPost]
         public ActionResult AddEmployee(tblEmployee p)
         {
-            //Model.state.isvalid yani şartı sağlamadıysak anlamında kullanılır.
+            //Model.state.isvalid yani method şartını sağlamadıysak
             if (!ModelState.IsValid)
             {
-                return RedirectToAction("AddEmployee");
+                
+                return View("AddEmployee");
             }
             db.tblEmployee.Add(p);
             db.SaveChanges();

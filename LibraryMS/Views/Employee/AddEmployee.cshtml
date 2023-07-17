@@ -1,20 +1,20 @@
-﻿@using LibraryMS.Models.Entity
-@model tblEmployee
+﻿@model LibraryMS.Models.Entity.tblEmployee
 
 @{
     ViewBag.Title = "AddEmployee";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 @using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post))
-            {
-                    <div class="form-control">
-                        <h2>Çalışan Ekleme Sayfası</h2>
-                        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(p => p.Name, "", new { @style = "color:red" })
-                        @Html.TextBoxFor(p => p.Surname, new { @class = "form-control my-3" })
-                        @Html.ValidationMessageFor(p => p.Surname, "",new {@style="color:red"})
+{
+    <div class="form-control">
+        <h2>Çalışan Ekleme Sayfası</h2>
+        @Html.TextBoxFor(p => p.Name, new { @class = "form-control" })
+        @*DataAnnotations mesajını burada validatıonmessagefor kısmında gösteririz.*@
+        @Html.ValidationMessageFor(p => p.Name, "", new { @style = "color:red" })
+        @Html.TextBoxFor(p => p.Surname, new { @class = "form-control my-3" })
+        @Html.ValidationMessageFor(p => p.Surname, "", new { @style = "color:red" })
 
-                        <button class="btn btn-primary">Çalışan Ekle</button>
-                    </div>
-            }
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Çalışan Ekle</button>
+}
 

@@ -134,6 +134,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActionController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
@@ -273,6 +274,7 @@
     <Content Include="Views\Member\Index.cshtml" />
     <Content Include="Views\Member\AddMember.cshtml" />
     <Content Include="Views\Member\CallMember.cshtml" />
+    <Content Include="Views\Action\LendBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

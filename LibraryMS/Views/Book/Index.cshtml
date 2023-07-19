@@ -25,6 +25,9 @@
     <table class="table table-bordered">
         <tr>
             <th>
+                Kitap Id
+            </th>
+            <th>
                 Kitap Adı
             </th>
             <th>
@@ -55,6 +58,7 @@
         @foreach (var book in Model)
         {
             <tr>
+                <td>@book.Id</td>
                 <td>@book.Name</td>
                 <td>@(book.tblAuthor != null ? book.tblAuthor.Name + " " + book.tblAuthor.Surname : "")</td>
                 <td>@(book.tblCategory != null ? book.tblCategory.Name : " " )</td>

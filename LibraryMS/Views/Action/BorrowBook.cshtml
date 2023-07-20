@@ -1,0 +1,37 @@
+﻿@model LibraryMS.Models.Entity.tblAction
+
+@{
+    ViewBag.Title = "BorrowBook";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("BorrowBookEdit", "Action", FormMethod.Post))
+{
+    <div class="form-control">
+        <h2>Kitabı İade Al</h2>
+        <br />
+        <label>İşlem Id</label>
+        @Html.TextBoxFor(a => a.Id, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(a => a.tblBook.Name, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Üye Id</label>
+        @Html.TextBoxFor(a => a.tblMember.Id, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Üye</label>
+        @Html.TextBoxFor(a => a.tblMember.Name, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Personel Id</label>
+        @Html.TextBoxFor(a => a.tblEmployee.Id, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Alış Tarihi</label>
+        @Html.TextBoxFor(a => a.PurchaseDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        <label>Bitiş Tarihi</label>
+        @Html.TextBoxFor(a => a.ReturnDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @readonly = "readonly" })
+        <label>Gerçekleşen İade Tarihi</label>
+        <input type="text" class="form-control" name="ProcessDate" value="@DateTime.Now.ToShortDateString()" readonly />
+        <button class="btn btn-warning">İade İşlemini Gerçekleştir</button>
+    </div>
+}

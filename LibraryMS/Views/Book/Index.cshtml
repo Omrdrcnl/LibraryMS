@@ -57,7 +57,9 @@
         </tr>
         @foreach (var book in Model)
         {
-            <tr>
+            var rowClass = book.Situation.GetValueOrDefault() ? "" : "bg-secondary"; // Matlaştırılmış arka plan sınıfı
+            var disableButton = book.Situation.GetValueOrDefault() ? "" : "disabled"; // İşlem düğmesini devre dışı bırakmak için sınıf
+            <tr class="@rowClass">
                 <td>@book.Id</td>
                 <td>@book.Name</td>
                 <td>@(book.tblAuthor != null ? book.tblAuthor.Name + " " + book.tblAuthor.Surname : "")</td>
@@ -66,8 +68,8 @@
                 <td>@book.Publisher</td>
                 <td>@book.CountPage</td>
                 <td>@book.Situation</td>
-                <td><a href="/Book/DeleteBook/@book.Id" class="btn btn-danger">Sil</a></td>
-                <td><a href="/Book/CallBook/@book.Id" class="btn btn-success">Güncelle</a></td>
+                <td><a href="/Book/DeleteBook/@book.Id" class="btn btn-danger @disableButton">Sil</a></td>
+                <td><a href="/Book/CallBook/@book.Id" class="btn btn-success @disableButton">Güncelle</a></td>
             </tr>
         }
     </table>

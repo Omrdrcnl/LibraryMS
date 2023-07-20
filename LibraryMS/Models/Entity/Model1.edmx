@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DbLibraryMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DbLibraryMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -25,6 +25,8 @@
           <Property Name="Employee" Type="int" />
           <Property Name="PurchaseDate" Type="smalldatetime" />
           <Property Name="ReturnDate" Type="smalldatetime" />
+          <Property Name="ProcessDate" Type="smalldatetime" />
+          <Property Name="Process" Type="bit" />
         </EntityType>
         <EntityType Name="tblAuthor">
           <Key>
@@ -219,8 +221,7 @@
             <End Role="tblPenal" EntitySet="tblPenal" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DbLibraryMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -248,6 +249,8 @@
           <NavigationProperty Name="tblEmployee" Relationship="Self.FK_tblAction_tblEmployee" FromRole="tblAction" ToRole="tblEmployee" />
           <NavigationProperty Name="tblMember" Relationship="Self.FK_tblAction_tblMember" FromRole="tblAction" ToRole="tblMember" />
           <NavigationProperty Name="tblPenal" Relationship="Self.FK_tblPenal_tblAction" FromRole="tblAction" ToRole="tblPenal" />
+          <Property Name="ProcessDate" Type="DateTime" Precision="0" />
+          <Property Name="Process" Type="Boolean" />
         </EntityType>
         <EntityType Name="tblAuthor">
           <Key>
@@ -270,7 +273,7 @@
           <Property Name="PublicationYear" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
           <Property Name="Publisher" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CountPage" Type="String" MaxLength="5" FixedLength="true" Unicode="true" />
-          <Property Name="Situation" Type="Boolean" />
+          <Property Name="Situation" Type="Boolean" DefaultValue="true" />
           <NavigationProperty Name="tblAction" Relationship="Self.FK_tblAction_tblBook" FromRole="tblBook" ToRole="tblAction" />
           <NavigationProperty Name="tblAuthor" Relationship="Self.FK_tblBook_tblAuthor" FromRole="tblBook" ToRole="tblAuthor" />
           <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblBook_tblCategory" FromRole="tblBook" ToRole="tblCategory" />
@@ -472,6 +475,8 @@
           <EntitySetMapping Name="tblAction">
             <EntityTypeMapping TypeName="DbLibraryMSModel.tblAction">
               <MappingFragment StoreEntitySet="tblAction">
+                <ScalarProperty Name="Process" ColumnName="Process" />
+                <ScalarProperty Name="ProcessDate" ColumnName="ProcessDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Book" ColumnName="Book" />
                 <ScalarProperty Name="Member" ColumnName="Member" />

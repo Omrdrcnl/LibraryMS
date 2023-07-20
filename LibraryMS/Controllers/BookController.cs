@@ -91,6 +91,7 @@ namespace LibraryMS.Controllers
             newbook.Publisher = b.Publisher;
             newbook.PublicationYear = b.PublicationYear;
             newbook.CountPage = b.CountPage;
+            newbook.Situation = true;
             //İlişkili tabloda eşleştirme işlemi
             var cat = db.tblCategory.Where(c => c.Id == b.tblCategory.Id).FirstOrDefault();
             var aut = db.tblAuthor.Where(a => a.Id == b.tblAuthor.Id).FirstOrDefault();

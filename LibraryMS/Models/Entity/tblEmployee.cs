@@ -11,8 +11,7 @@ namespace LibraryMS.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tblEmployee
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,9 +21,8 @@ namespace LibraryMS.Models.Entity
         }
     
         public int Id { get; set; }
-
-        [Required(ErrorMessage ="Ýsim Alaný Zorunludur!")] public string Name { get; set; }
-        [Required(ErrorMessage ="Soyisim Alaný Zorunludur!")] public string Surname { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblAction> tblAction { get; set; }

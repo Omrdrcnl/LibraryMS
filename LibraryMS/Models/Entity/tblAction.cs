@@ -26,6 +26,8 @@ namespace LibraryMS.Models.Entity
         public Nullable<int> Employee { get; set; }
         public Nullable<System.DateTime> PurchaseDate { get; set; }
         public Nullable<System.DateTime> ReturnDate { get; set; }
+        public Nullable<System.DateTime> ProcessDate { get; set; }
+        public Nullable<bool> Process { get; set; }
     
         public virtual tblBook tblBook { get; set; }
         public virtual tblEmployee tblEmployee { get; set; }

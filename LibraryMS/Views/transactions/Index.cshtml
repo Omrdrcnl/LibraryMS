@@ -1,0 +1,59 @@
+﻿@using LibraryMS.Models.Entity
+@model  List<tblAction>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<div class="container mt-5 mb-2">
+    <h1>İadesi Alınan Kitap Kayıtları</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Kitap Id
+            </th>
+            <th>
+                Kitap
+            </th>
+            <th>
+                Üye Id
+            </th>
+            <th>
+                Üye
+            </th>
+            <th>
+                Personel Id
+            </th>
+            <th>
+                Personel
+            </th>
+            <th>
+                Aliş Tarihi
+            </th>
+            <th>
+                İade Olunan Tarih
+            </th>
+            <th>
+                İşlem
+            </th>
+        </tr>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.tblBook.Id</td>
+                <td>@b.tblBook.Name</td>
+                <td>@b.Member</td>
+                <td>@(b.tblMember != null ? b.tblMember.Name + " " + b.tblMember.Surname : "" )</td>
+                <td>@b.Employee</td>
+                <td>@(b.tblEmployee != null ? b.tblEmployee.Name + " " + b.tblEmployee.Surname : "")</td>
+                <td>@Convert.ToDateTime(b.PurchaseDate).ToShortDateString()</td>
+                <td>@Convert.ToDateTime(b.ProcessDate).ToShortDateString()</td>
+                <td>
+                    <input type="hidden" name="Process" />
+                    <button class="btn btn-warning">Detaylar</button>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>

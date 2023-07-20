@@ -10,6 +10,7 @@
 
     <table class="table table-bordered">
         <tr>
+            <th>Id</th>
             <th>
                 Adı
             </th>
@@ -26,6 +27,7 @@
         @foreach (var p in Model)
         {
             <tr>
+                <td>@p.Id</td>
                 <td>@p.Name</td>
                 <td>@p.Surname</td>
               

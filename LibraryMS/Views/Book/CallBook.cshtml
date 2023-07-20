@@ -10,7 +10,7 @@
             {
                 <div class="form-control">
                     <h2>Kitap Güncelleme</h2>
-                    
+
                     @Html.HiddenFor(b => b.Id, new { @class = "form-control" })
                     <br />
                     @Html.LabelFor(b => b.Name)
@@ -34,9 +34,6 @@
                     <label>Sayfa Sayısı</label>
                     @Html.TextBoxFor(b => b.CountPage, new { @class = "form-control" })
                     <br />
-                    <label>Durum</label>
-                    @Html.TextBoxFor(b => b.Situation, new { @class = "form-control" })
-
                 </div>
                 <button class="btn btn-warning mt-4">Kitap Bilgilerini Güncelle</button>
             }

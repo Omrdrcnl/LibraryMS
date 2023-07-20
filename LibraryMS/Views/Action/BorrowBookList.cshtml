@@ -1,0 +1,72 @@
+﻿@using LibraryMS.Models.Entity
+@model  List<tblAction>
+
+@{
+    ViewBag.Title = "BorrowBookList";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<div class="container mt-5 mb-2">
+    <h1>Ödünç Kitap Listesi</h1>
+    @using (Html.BeginForm("Index", "Book", FormMethod.Get))
+    {<div class="input-group mb-3">
+
+            @*//aramada p parametresini gönderdiğimiz alan beginform içinde
+                get methodu kullanarak inpt içerisindeki değeri pye aktarıyoruz*@
+
+            @Html.TextBox("p", null, new { @class = "form-control my-custom-class", placeholder = "Üye İsmini Giriniz" })
+
+            <div class="input-group-append">
+
+                <button class="btn btn-outline-secondary" type="submit">Ara</button>
+            </div>
+        </div>}
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Kitap Id
+            </th>
+            <th>
+                Kitap
+            </th>
+            <th>
+                Üye Id 
+            </th>
+            <th>
+                Üye
+            </th>
+            <th>
+                Personel Id
+            </th>
+            <th>
+                Personel
+            </th>
+            <th>
+                Aliş Tarihi
+            </th>
+            <th>
+                İade Tarihi
+            </th>
+            <th>
+                İşlem
+            </th>
+        </tr>
+        @foreach (var b in Model)
+        {
+            <tr>
+                <td>@b.tblBook.Id</td>
+                <td>@b.tblBook.Name</td>
+                <td>@b.Member</td>
+                <td>@(b.tblMember != null ? b.tblMember.Name + " " + b.tblMember.Surname : "" )</td>
+                <td>@b.Employee</td>
+                <td>@(b.tblEmployee != null ? b.tblEmployee.Name + " " + b.tblEmployee.Surname : "")</td>
+                <td>@Convert.ToDateTime(b.PurchaseDate).ToShortDateString()</td>
+                <td>@Convert.ToDateTime(b.ReturnDate).ToShortDateString()</td>
+                <td><a href="/Action/BorrowBook/@b.Id" class="btn btn-outline-warning">Kitabı İade al</a></td>
+                
+            </tr>
+        }
+    </table>
+
+</div>

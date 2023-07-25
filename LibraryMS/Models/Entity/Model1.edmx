@@ -15,6 +15,13 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="tblAbout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="About" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="tblAction">
           <Key>
             <PropertyRef Name="Id" />
@@ -49,6 +56,7 @@
           <Property Name="Publisher" Type="nvarchar" MaxLength="50" />
           <Property Name="CountPage" Type="nchar" MaxLength="5" />
           <Property Name="Situation" Type="bit" />
+          <Property Name="Image" Type="nvarchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="tblCategory">
           <Key>
@@ -184,6 +192,7 @@
         </Association>
         <EntityContainer Name="DbLibraryMSModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblAbout" EntityType="Self.tblAbout" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblAction" EntityType="Self.tblAction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblAuthor" EntityType="Self.tblAuthor" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblBook" EntityType="Self.tblBook" Schema="dbo" store:Type="Tables" />
@@ -277,6 +286,7 @@
           <NavigationProperty Name="tblAction" Relationship="Self.FK_tblAction_tblBook" FromRole="tblBook" ToRole="tblAction" />
           <NavigationProperty Name="tblAuthor" Relationship="Self.FK_tblBook_tblAuthor" FromRole="tblBook" ToRole="tblAuthor" />
           <NavigationProperty Name="tblCategory" Relationship="Self.FK_tblBook_tblCategory" FromRole="tblBook" ToRole="tblCategory" />
+          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tblCategory">
           <Key>
@@ -454,7 +464,15 @@
             <End Role="tblMember" EntitySet="tblMember" />
             <End Role="tblPenal" EntitySet="tblPenal" />
           </AssociationSet>
+          <EntitySet Name="tblAbout" EntityType="DbLibraryMSModel.tblAbout" />
         </EntityContainer>
+        <EntityType Name="tblAbout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -499,6 +517,7 @@
           <EntitySetMapping Name="tblBook">
             <EntityTypeMapping TypeName="DbLibraryMSModel.tblBook">
               <MappingFragment StoreEntitySet="tblBook">
+                <ScalarProperty Name="Image" ColumnName="Image" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Category" ColumnName="Category" />
@@ -560,6 +579,14 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Month" ColumnName="Month" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblAbout">
+            <EntityTypeMapping TypeName="DbLibraryMSModel.tblAbout">
+              <MappingFragment StoreEntitySet="tblAbout">
+                <ScalarProperty Name="About" ColumnName="About" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

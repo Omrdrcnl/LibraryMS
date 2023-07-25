@@ -34,5 +34,6 @@ namespace LibraryMS.Models.Entity
         public virtual DbSet<tblMember> tblMember { get; set; }
         public virtual DbSet<tblPenal> tblPenal { get; set; }
         public virtual DbSet<tblSafe> tblSafe { get; set; }
+        public virtual DbSet<tblAbout> tblAbout { get; set; }
     }
 }

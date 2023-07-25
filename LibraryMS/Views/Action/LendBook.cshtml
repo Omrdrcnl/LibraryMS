@@ -17,11 +17,12 @@
     @Html.TextBoxFor(b => b.Employee, new { @class = "form-control" })
     <br />
     <label>Kitap Alış Tarihi</label>
-    <input type="text" name="PurchaseDate" class="form-control" value="@DateTime.Now.ToShortDateString()" readonly/>
+    <input type="text" name="PurchaseDate" class="form-control" value="@DateTime.Now.ToShortDateString()" />
     <br />
     <label>Kitap İade Tarihi</label>
     <input type="text" name="ReturnDate" class="form-control" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
     <br />
+    
     <button type="submit" class="btn btn-info my-4">Kitap Ödünç Ver</button>
-   
+
 </form>

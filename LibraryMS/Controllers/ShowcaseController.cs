@@ -13,8 +13,9 @@ namespace LibraryMS.Controllers
     public class ShowcaseController : Controller
     {
         DbLibraryMSEntities db = new DbLibraryMSEntities();
-        
+
         // GET: Showcase
+        [HttpGet]
         public ActionResult Index()
         {
             //Asagıda ki 3 satırda about ve books degerlerini indexe gönderiyoruz. Oradada modele atama yapıyoruz.
@@ -25,6 +26,13 @@ namespace LibraryMS.Controllers
 
             //var values = db.tblBook.ToList();
             return View(cs);
+        }
+        [HttpPost]
+        public ActionResult Index(tblContact c)
+        {
+            db.tblContact.Add(c);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

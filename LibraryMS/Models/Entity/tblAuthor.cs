@@ -11,7 +11,8 @@ namespace LibraryMS.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblAuthor
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace LibraryMS.Models.Entity
         }
     
         public int Id { get; set; }
+        [StringLength(40,ErrorMessage ="Yazar Adý 40 Karakterden Fazla Olamaz")]
+        [Required(ErrorMessage ="Ad Alaný Zorunludur")]
         public string Name { get; set; }
+        [StringLength(40, ErrorMessage = "Yazar Adý 40 Karakterden Fazla Olamaz")]
+        [Required(ErrorMessage = "Soyad Alaný Zorunludur")]
         public string Surname { get; set; }
         public string Detail { get; set; }
     

@@ -22,6 +22,7 @@
         <AssociationConnector Association="DbLibraryMSModel.FK_tblBook_tblCategory" ManuallyRouted="false" />
         <AssociationConnector Association="DbLibraryMSModel.FK_tblPenal_tblMember" ManuallyRouted="false" />
         <EntityTypeShape EntityType="DbLibraryMSModel.tblAbout" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DbLibraryMSModel.tblContact" Width="1.5" PointX="5.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

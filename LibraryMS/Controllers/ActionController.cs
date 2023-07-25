@@ -49,6 +49,13 @@ namespace LibraryMS.Controllers
         public ActionResult BorrowBook(tblAction a)
         {
             var lend = db.tblAction.Find(a.Id);
+            DateTime d1 = DateTime.Parse(lend.ReturnDate.ToString());
+            DateTime d2 = DateTime.Parse(lend.PurchaseDate.ToString());
+
+            TimeSpan d3 = d1-d2;
+
+            ViewBag.day=d3.TotalDays;
+
             return View("BorrowBook", lend);
         }
         public ActionResult BorrowBookEdit(tblAction a)

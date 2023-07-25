@@ -9,13 +9,17 @@
 @using (Html.BeginForm("AddAuthor","Author",FormMethod.Post))
             {
                     <div class="form-control">
+                        <h1>Yazar Ekle</h1>
                         @Html.LabelFor(a => a.Name)
                         @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(y => y.Name, "", new {@style="color:red"})
                         <br />
                         @Html.LabelFor(a => a.Surname)
                         @Html.TextBoxFor(a => a.Surname, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(y => y.Surname, "", new { @style = "color:red" })
+
                         <br />
-                       
+
                         @Html.LabelFor(a => a.Detail)
 
                         @Html.TextAreaFor(a => a.Detail, new { @class = "form-control" })

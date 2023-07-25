@@ -32,6 +32,8 @@
         @Html.TextBoxFor(a => a.ReturnDate, "{0:dd/MM/yyyy}", new { @class = "form-control", @readonly = "readonly" })
         <label>Gerçekleşen İade Tarihi</label>
         <input type="text" class="form-control" name="ProcessDate" value="@DateTime.Now.ToShortDateString()" readonly />
-        <button class="btn btn-warning">İade İşlemini Gerçekleştir</button>
+        <label>Geç Kalınan Gün Sayısı</label>
+        <input type="text" name="LateDate" class="form-control" value="@ViewBag.day" readonly />
+        <button class="btn btn-warning mt-3">İade İşlemini Gerçekleştir</button>
     </div>
 }

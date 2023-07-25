@@ -34,6 +34,10 @@ namespace LibraryMS.Controllers
         [HttpPost]
         public ActionResult AddAuthor(tblAuthor a)
         {
+            if(!ModelState.IsValid)
+            {
+                return View("AddAuthor");
+            }
             var values = db.tblAuthor.Add(a);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -12,6 +12,8 @@ namespace LibraryMS.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class DbLibraryMSEntities : DbContext
     {
@@ -36,5 +38,10 @@ namespace LibraryMS.Models.Entity
         public virtual DbSet<tblSafe> tblSafe { get; set; }
         public virtual DbSet<tblAbout> tblAbout { get; set; }
         public virtual DbSet<tblContact> tblContact { get; set; }
+    
+        public virtual ObjectResult<string> BesatAuthor()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("BesatAuthor");
+        }
     }
 }

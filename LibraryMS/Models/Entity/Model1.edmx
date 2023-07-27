@@ -200,6 +200,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="BesatAuthor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="DbLibraryMSModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblAbout" EntityType="Self.tblAbout" Schema="dbo" store:Type="Tables" />
@@ -477,6 +478,7 @@
           </AssociationSet>
           <EntitySet Name="tblAbout" EntityType="DbLibraryMSModel.tblAbout" />
           <EntitySet Name="tblContact" EntityType="DbLibraryMSModel.tblContact" />
+          <FunctionImport Name="BesatAuthor" ReturnType="Collection(String)" />
         </EntityContainer>
         <EntityType Name="tblAbout">
           <Key>
@@ -623,6 +625,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="BesatAuthor" FunctionName="DbLibraryMSModel.Store.BesatAuthor" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

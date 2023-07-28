@@ -9,6 +9,7 @@ namespace LibraryMS.Controllers
     public class PanelController : Controller
     {
         // GET: Panel
+        [Authorize]
         public ActionResult Index()
         {
             return View();

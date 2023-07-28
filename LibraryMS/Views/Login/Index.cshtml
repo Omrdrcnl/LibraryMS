@@ -37,10 +37,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <h1>Kütüphane Giriş Paneli</h1>
     <div class=" w3l-login-form">
         <h2>Login</h2>
-        @using (Html.BeginForm("GirisYap", "Login", FormMethod.Post))
+        @using (Html.BeginForm("Index", "Login", FormMethod.Post))
         {
             <div class=" w3l-form-group">
-                <label>Kullanıcı Adı:</label>
+                <label>Kullanıcı Mail:</label>
                 <div class="group">
                     <i class="fas fa-user"></i>
                     <input type="text" class="form-control" placeholder="kullanıcı adınız" required="required" name="Mail" />

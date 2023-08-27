@@ -26,6 +26,15 @@ namespace LibraryMS.Controllers
             if(info!=null)
             {
                 FormsAuthentication.SetAuthCookie(info.Mail, false);
+                Session["Mail"] = info.Mail.ToString();
+                //TempData["Id"] =info.Id.ToString();
+                //TempData["name"] =info.Name.ToString();
+                //TempData["Surname"] =info.Surname.ToString();
+                //TempData["UserName"] =info.UserName.ToString();
+                //TempData["Photo"] =info.Photo.ToString();
+                //TempData["School"] =info.School.ToString();
+                //TempData["Password"] =info.Password.ToString();
+                //TempData["phone"] =info.Phone.ToString();
                 return RedirectToAction("Index","Panel");
             }
             else

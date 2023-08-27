@@ -38,6 +38,7 @@ namespace LibraryMS.Models.Entity
         public virtual DbSet<tblSafe> tblSafe { get; set; }
         public virtual DbSet<tblAbout> tblAbout { get; set; }
         public virtual DbSet<tblContact> tblContact { get; set; }
+        public virtual DbSet<tblMessages> tblMessages { get; set; }
     
         public virtual ObjectResult<string> BesatAuthor()
         {
